@@ -1,26 +1,32 @@
+<nav class="navbar">
 <img src="/assets/img/logo.png" class="img-logo"><span class="logo">K<span class="red">ou</span>sh<span class="red">i</span></span>
 </nav>
 
-<div class="profile-nav"></div>
+<div class="profile-nav">
+{{#content}}
+<h3>Welcome {{this.first_name}} {{this.last_name}}</h3>
+{{/content}}
+</div>
+
 <div class="profile-content">
-    <div id="html">
+    <div id="info-content">
         <div id="content-header">
-            HTML
+            HTML / CSS / JavaScript
+        </div>
+
+        <div class="content">
+            <span class="question">1. What is DOCTYPE? Why do you need it?</span>
+                    <span class="answer">Answer: A document type declaration, or DOCTYPE, is an instruction that associates a particular SGML or XML document (for example, a webpage) with a document type definition (DTD). You need it because is an instruction to the web browser about what version of HTML the page is written in and how the browser should render it.</span>
+                        <div class="pre">
+                            <code class="xml">&lt;<span class="pink">!DOCTYPE</span> html&gt;
+                            <br>&lt;html <span class="green">lang=</span><span class="yellow">"en"</span>&gt;
+                            </code>
+                        </div>
+                    <span class="info">It guides how elements should be displayed on the page by the browser. Moreover, DOCTYPE is required to validate markup.</span>
+
+                   <span class="question"> 2. What is the difference between the HTML tag div and span?</span>
+                        <span class="answer">Answer: div is a block element, span is inline.</span>
+                            <span class="info">This means that to use them semantically, divs should be used to wrap sections of a document, while spans should be used to wrap small portions of text, images, etc.</span> 
         </div>
     </div>
-
-
-    <div id="css">
-         <div id="content-header">
-            CSS
-        </div>
-    </div>
-
-
-    <div id="javascript">
-         <div id="content-header">
-            JavaScript
-        </div>
-    </div>
-
 </div>

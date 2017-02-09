@@ -1,6 +1,4 @@
-
 $("#submit").click(function(event) {
-    var username = $("#username").val().trim();
     var firstName = $("#first-name").val().trim();
     var lastName = $("#last-name").val().trim();
     var email = $("#email").val().trim();
@@ -9,14 +7,7 @@ $("#submit").click(function(event) {
     var isCharacter = /[^a-zA-Z]/;
     var input = $("input").val().trim();
     var validEmail = /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{3})$/;
-    console.log(lastName)
-    if (username.length === 0) {
-        event.preventDefault();
-        $(".warning").text("Username is required");
-    } else if (6 > username.length > 0 || username.length > 15) {
-        event.preventDefault();
-        $(".warning").text("Username must be between 6 to 15 characters");
-    } else if (firstName.length === 0) {
+    if (firstName.length === 0) {
         event.preventDefault();
         $(".warning").text("First name is required");
     } else if (firstName.match(isCharacter)) {
@@ -40,5 +31,26 @@ $("#submit").click(function(event) {
     } else if (password !== validate) {
         event.preventDefault();
         $(".warning").text("Passwords must match");
-    } 
+    }
+})
+
+$(".register").click(() => {
+    $("#login-content").fadeOut(0);
+    $("#register-content").fadeIn(0500);
+    $(".register").removeClass("register").addClass("register-active");
+    $(".login").removeClass("login").addClass("login-inactive")
+})
+
+$(".register-active").click(() => {
+    $("#login-content").fadeOut(0);
+    $("#register-content").fadeIn(0500);
+    $(".register").removeClass("register").addClass("register-active");
+    $(".login").removeClass("login").addClass("login-inactive");
+})
+
+$(".login").click(() => {
+    $("#register-content").fadeOut(0);
+    $("#login-content").fadeIn(0500);
+    $(".register-active").removeClass("register-active").addClass("register");
+    $(".login-inactive").removeClass("login-inactive").addClass("login");
 })

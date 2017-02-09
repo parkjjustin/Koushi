@@ -1,11 +1,7 @@
+const bcrypt = require('bcryptjs');
+
 module.exports = function(sequelize, DataTypes) {
     var users = sequelize.define("users", {
-        username: {
-            type: DataTypes.STRING,
-            notEmpty: true,
-            len: [6, 15],
-            allowNull: false
-        },
         first_name: {
             type: DataTypes.STRING,
             notEmpty: true,
@@ -35,7 +31,7 @@ module.exports = function(sequelize, DataTypes) {
     }, {
         classMethods: {
             associate: function(models) {
-                //   users.belongsTo(models.Program);
+                console.log(models);
             }
         },
         timestamps: false

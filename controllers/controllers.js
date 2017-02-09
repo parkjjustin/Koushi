@@ -1,21 +1,38 @@
-var db = require("../models");
+const express = require('express');
+const passport = require('passport');
+const LocalStrategy = require('passport-local').Strategy;
+const app = express();
+const db = require("../models");
 
 module.exports = (app) => {
     app.get("/", (request, response) => {
         response.render("index");
     });
 
-        app.get("/user", (request, response) => {
-        response.render("user");
+    app.get("/login", (request, response) => {
+        response.render("login");
     });
 
-    
+    app.get("/user", (request, response) => {
+        db.users.findAll({
+            order: [
+                ["id"]
+            ]
+        }).then(function(content) {
+            let hbsObject = {
+                content: content
+            };
+            response.render("user", hbsObject);
+        });
+    });
 
     app.get("/register", (request, response) => {
-        db.users.findAll({ order: [
+        db.users.findAll({
+            order: [
                 ["id"]
-            ] }).then(function(content) {
-            var hbsObject = {
+            ]
+        }).then(function(content) {
+            let hbsObject = {
                 content: content
             };
             response.render("register", hbsObject);
@@ -23,10 +40,9 @@ module.exports = (app) => {
     });
 
     app.post("/register", (request, response) => {
-        let properFirst = request.body.first_name.substr(0,1).toUpperCase() + request.body.first_name.substr(1,request.body.first_name.length);
-        let properLast = request.body.last_name.substr(0,1).toUpperCase() + request.body.last_name.substr(1,request.body.last_name.length);
+        let properFirst = request.body.first_name.substr(0, 1).toUpperCase() + request.body.first_name.substr(1, request.body.first_name.length);
+        let properLast = request.body.last_name.substr(0, 1).toUpperCase() + request.body.last_name.substr(1, request.body.last_name.length);
         db.users.create({
-            username: request.body.username,
             first_name: properFirst,
             last_name: properLast,
             email: request.body.email,
