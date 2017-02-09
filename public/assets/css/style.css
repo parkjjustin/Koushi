@@ -256,6 +256,9 @@ a {
     color: black !important;
 }
 
+
+/*Everything below here is styling the login and register pages */
+
 .log-in-container {
     width: 30%;
     min-width: 600px;

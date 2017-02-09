@@ -13,6 +13,10 @@ module.exports = (app) => {
         response.render("login");
     });
 
+    app.get("/register", (request, response) => {
+        response.render("register");
+    });
+
     app.get("/user", (request, response) => {
         db.users.findAll({
             order: [
@@ -26,18 +30,6 @@ module.exports = (app) => {
         });
     });
 
-    app.get("/register", (request, response) => {
-        db.users.findAll({
-            order: [
-                ["id"]
-            ]
-        }).then(function(content) {
-            let hbsObject = {
-                content: content
-            };
-            response.render("register", hbsObject);
-        });
-    });
 
     app.post("/register", (request, response) => {
         let properFirst = request.body.first_name.substr(0, 1).toUpperCase() + request.body.first_name.substr(1, request.body.first_name.length);

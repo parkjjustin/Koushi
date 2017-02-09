@@ -54,3 +54,10 @@ $(".login").click(() => {
     $(".register-active").removeClass("register-active").addClass("register");
     $(".login-inactive").removeClass("login-inactive").addClass("login");
 })
+
+$(".login-inactive").click(() => {
+    $("#register-content").fadeOut(0);
+    $("#login-content").fadeIn(0500);
+    $(".register-active").removeClass("register-active").addClass("register");
+    $(".login-inactive").removeClass("login-inactive").addClass("login");
+})
