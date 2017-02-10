@@ -17,7 +17,7 @@ module.exports = (app) => {
         response.render("register");
     });
 
-    app.get("/user", (request, response) => {
+    app.get("/user/profile", (request, response) => {
         db.users.findAll({
             order: [
                 ["id"]
@@ -44,23 +44,5 @@ module.exports = (app) => {
         });
     });
 
-    // });
-
-    // app.put("/burger/update/:id", function(request, response) {
-    //     db.burger.update({
-    //         devoured: request.body.devoured
-    //     },{
-    //         where: {id: request.params.id}
-    //     }).then(function(content){
-    //         response.redirect("/burger");
-    //     });
-    // });
-
-    // app.delete("/burger/delete/:id", function(request, response) {
-    //     db.burger.destroy({
-    //         where: {id: request.params.id}
-    //     }).then(function(content) {
-    //         response.redirect("/");
-    //     });
-    // });
+// Passport.js
 };
