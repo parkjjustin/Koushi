@@ -13,6 +13,7 @@ const LocalStrategy = require('passport-local').Strategy;
 const flash = require('connect-flash');
 const db = require("./models");
 
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());

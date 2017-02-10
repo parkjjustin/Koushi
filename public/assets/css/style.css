@@ -317,8 +317,6 @@ a {
 }
 
 .register:hover,
-.login:hover,
-.register-active:hover,
 .login-inactive:hover {
     cursor: pointer;
 }

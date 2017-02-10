@@ -25,9 +25,6 @@ $("#submit").click(function(event) {
     } else if (email.match(validEmail) === null) {
         event.preventDefault();
         $(".warning").text("Enter a valid email");
-    } else if (6 > username.length > 0 || username.length > 15) {
-        event.preventDefault();
-        $(".warning").text("Password must be between 6 to 15 characters");
     } else if (password !== validate) {
         event.preventDefault();
         $(".warning").text("Passwords must match");
