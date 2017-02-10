@@ -27,6 +27,11 @@ module.exports = function(sequelize, DataTypes) {
             len: [6, 15],
             notEmpty: true,
             allowNull: false
+        },
+        salt: {
+            type: DataTypes.STRING,
+            notEmpty: true,
+            allowNull: false
         }
     }, {
         classMethods: {
