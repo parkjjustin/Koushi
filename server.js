@@ -28,15 +28,15 @@ app.set("view engine", "handlebars");
 app.use(express.static("./public"));
 app.use(cookieParser());
 
-app.use(session({
-  secret: "secret",
-  // store: new SequelizeStore({
-  //   db: db.sequelize
-  // }),
-  cookie: {maxAge: 180*60*1000},
-  resave: true,
-  saveUninitialized: true
-}));
+// app.use(session({
+//   secret: "secret",
+//   // store: new SequelizeStore({
+//   //   db: db.sequelize
+//   // }),
+//   cookie: {maxAge: 180*60*1000},
+//   resave: true,
+//   saveUninitialized: true
+// }));
 
 app.use(passport.initialize()); 
 app.use(passport.session());
