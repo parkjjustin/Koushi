@@ -1,4 +1,6 @@
 const bcrypt = require('bcryptjs');
+var Sequelize = require('sequelize'),
+ sequelize = new Sequelize("sequelize_test", "root");
 
 module.exports = function(sequelize, DataTypes) {
     var users = sequelize.define("users", {
@@ -17,6 +19,7 @@ module.exports = function(sequelize, DataTypes) {
         email: {
             type: DataTypes.STRING,
             notEmpty: true,
+            unique: true,
             allowNull: false,
             validate: {
                 isEmail: true
@@ -36,7 +39,6 @@ module.exports = function(sequelize, DataTypes) {
     }, {
         classMethods: {
             associate: function(models) {
-                console.log(models);
             }
         },
         timestamps: false

@@ -1,17 +1,17 @@
 const express = require("express");
-const methodOverride = require('method-override');
-const bodyParser = require('body-parser');
-const exphbs = require("express-handlebars");
-const path = require("path");
-const app = express();
-const PORT = process.env.PORT || 3000;
-const cookieParser = require('cookie-parser');
+const bodyParser = require("body-parser");
+const methodOverride = require("method-override");
 const expressValidator = require('express-validator');
+const exphbs = require("express-handlebars");
+const cookieParser = require('cookie-parser')
 const session = require('express-session');
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const flash = require('connect-flash');
 const db = require("./models");
+const app = express();
+const PORT = process.env.PORT || 3000;
 
 
 app.use(bodyParser.json());
