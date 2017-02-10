@@ -50,7 +50,7 @@ module.exports = (app) => {
         db.users.findAll({}).then(function(content) {
             for(var i = 0; i < content.length; i++) {
                 if (email === content[i].email) {
-                  response.redirect("/register") // if the user tries to register with an email that is already in the database, we need to write a code that throws an error
+                  response.redirect("/register") // if the user tries to register with an email that is already in the database, we need to write a code that throws an error that says email is already registered, and redirects to login
                 } else {
                     request.checkBody('first_name', 'First name is required').notEmpty();
                     request.checkBody('last_name', 'Last name is required').notEmpty();
