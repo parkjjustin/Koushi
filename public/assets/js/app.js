@@ -58,3 +58,28 @@ $(".login-inactive").click(() => {
     $(".register-active").removeClass("register-active").addClass("register");
     $(".login-inactive").removeClass("login-inactive").addClass("login");
 })
+
+
+
+$(".toggle-nav").click(() => {
+$(".profile-nav").animate({
+    left: "-300px"
+}, 500)
+
+$("#info-content").animate({
+    marginLeft: "0"
+}, 500)
+
+})
+
+$("#info-content").click(() => {
+$(".profile-nav").animate({
+    left: "0"
+}, 500)
+
+$("#info-content").animate({
+    marginLeft: "300px"
+}, 500)
+
+return false;
+})

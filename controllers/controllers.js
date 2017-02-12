@@ -20,22 +20,19 @@ module.exports = (app) => {
     });
     
     app.post('/login', passport.authenticate('local-signIn',
-       {  successRedirect: '/user/profile',
+       {  successRedirect: '/profile',
        failureRedirect: '/',
        failureFlash: true
    }
    ));
 
-    app.get("/user/profile", (request, response) => {
-        db.users.findAll({
-            order: [
-                ["id"]
-            ]
-        }).then(function(content) {
+    app.get("/profile", isLoggedIn, (request, response) => {
+        db.users.findOne({}).then(function(content) {
             let hbsObject = {
                 content: content
             };
             response.render("user", hbsObject);
+
         });
     });
 
@@ -75,7 +72,7 @@ module.exports = (app) => {
                             salt: salt
                         })
                         .then((user)=>{
-                                passport.authenticate("local-signIn", {failureRedirect:"/signup", successRedirect: "/user/profile"})(request, response)
+                                passport.authenticate("local-signIn", {failureRedirect:"/signup", successRedirect: "/profile"})(request, response)
                                 request.flash('success_msg', 'You are registered and can now login');
                                 })
                     }
@@ -88,7 +85,7 @@ module.exports = (app) => {
 // ******************************************************************************
       passport.use('local-signIn', new LocalStrategy.Strategy(
         (email, password, done) => {
-        db.User.findOne({ where: { 'email': email }}).then((user) => {
+        db.users.findOne({ where: { 'email': email }}).then((user) => {
             if(!user){return done(null, false, {message:'Unknown User'})}
             let hashedPW = bcrypt.hashSync(password, user.salt) 
             if(user.password === hashedPW){
@@ -103,7 +100,7 @@ module.exports = (app) => {
           if(request.isAuthenticated()){
               return next();
           }
-          response.redirect('/user/profile');
+          response.redirect('/profile');
           
       }
     // function that allowes rout access only to logged in users /// 
@@ -120,7 +117,7 @@ module.exports = (app) => {
 
     //   Deserialize Sessions
       passport.deserializeUser((user, done) => {
-        db.User.findOne({where: {'email': user.email}}).then((user) => {
+        db.users.findOne({where: {'email': user.email}}).then((user) => {
           done(null, user);
         }).catch((err) => {
           done(err, null)

@@ -163,10 +163,9 @@ footer {
 }
 
 .profile-content {
-    padding-left: 300px;
     box-sizing: border-box;
     width: 100%;
-    padding-top: 65px;
+    padding-top: 20px;
     text-align: center;
 }
 
@@ -180,6 +179,7 @@ footer {
     min-width: 300px;
     box-shadow: 2px 2px 2px #888888;
     text-align: left;
+    margin-left: 300px;
 }
 
 #content-header {
@@ -351,3 +351,10 @@ a {
     padding: 20px;
     box-sizing: border-box;
 }
+
+/*.toggle-nav, .show-nav {
+    margin-left: 300px;
+    margin-top: 30px;
+    width: 40px;
+    height: 40px;
+}*/

@@ -22,6 +22,7 @@ app.use(expressValidator());
 
 
 app.use(express.static(process.cwd() + "/public"));
+
 app.use(methodOverride("_method"));
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
