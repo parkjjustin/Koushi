@@ -57,7 +57,7 @@ passport.use(new LocalStrategy(
    User.getUserByUsername(username, (error, user) => {
    	if(error) throw error;
    	if(!user){
-   		return done(null, false, {message: 'Unknown User'});
+   		return done(null, false, {message: 'Username not registered'});
    	}
 
    	User.comparePassword(password, user.password, (error, isMatch) => {

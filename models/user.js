@@ -6,6 +6,7 @@ var UserSchema = mongoose.Schema({
         type: String,
         index: true,
         required: "Username is required",
+        unique: true,
         min: 6,
         max: 15,
         validate: [(input) => {
