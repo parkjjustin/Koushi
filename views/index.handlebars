@@ -1,39 +1,37 @@
-
 <div class="header">
-{{#if user}}
+    {{#if user}}
     <div class="study-header">
         <a class="back-to-profile" href="/users/profile">Prepare for a career in web development!<p>Keep studying!</p></a>
     </div>
     {{else}}
 
     <h1>Study. Prepare. Get hired.</h1>
-        <h3>Sign up and improve your skills</h3>
+    <h3>Sign up and improve your skills</h3>
 
-        <form class="register-form" action="/users/register" method="POST">
+    <form class="register-form" action="/users/register" method="POST">
 
-            <div class="input-group">
-                <input type="text" class="form-control" placeholder="Username" name="username">
-            </div>
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Username" name="username">
+        </div>
 
-            <div class="input-group">
-                <input type="text" class="form-control" placeholder="E-mail" name="email">
-            </div>
-            
-            <div class="input-group">
-                <input type="password" class="form-control" placeholder="Password" name="password">
-            </div>
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="E-mail" name="email">
+        </div>
 
-            <div class="input-group">
-                <input type="password" class="form-control" placeholder="Confirm Password" name="password2">
-            </div>
-            <h6 class="terms">By signing up you agree to our Terms of Service and Privacy Policy</h6>
-            <button type="submit" id="submit">Sign up & start preparing</button>
+        <div class="input-group">
+            <input type="password" class="form-control" placeholder="Password" name="password">
+        </div>
 
- {{/if}}
-    <div class="warning"></div>
+        <div class="input-group">
+            <input type="password" class="form-control" placeholder="Confirm Password" name="password2">
+        </div>
+        <h6 class="terms">By signing up you agree to our Terms of Service and Privacy Policy</h6>
+        <button type="submit" id="submit">Sign up & start preparing</button>
+     {{/if}}
+        <div class="warning"></div>
 
     </form>
-    </div>
+</div>
 <div class="info">
     <div id="inner-info">
         <i class="fa fa-graduation-cap" aria-hidden="true" style="font-size:48px; color: #999"></i>
@@ -42,7 +40,8 @@
         <p>Flip through our study guides and take our practice tests and prepare for your next technical interview</p>
         <hr class="line">
         <i class="fa fa-quote-left" aria-hidden="true" style="font-size:30px; color: #999; text-align: left;"></i>
-        <div class="quote">Koushi helped me really study for my technical interview, it wasn't just coding I needed to know but concepts'<p>- Marc Graham, UCLA Coding Bootcamp</div>
+        <div class="quote">Koushi helped me really study for my technical interview, it wasn't just coding I needed to know but concepts'
+            <p>- Marc Graham, UCLA Coding Bootcamp</div>
     </div>
 </div>
 <footer class="footer">@justin.park @andrey.orlov @eva.lieu @francis.ian.lao</footer>
