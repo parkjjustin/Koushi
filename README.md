@@ -8,6 +8,8 @@ Koushi is a website designed to aid in supplemental studies of a web developer s
 
 Koushi was written in JavaScript, Handlebars as the templating engine, Node, Express and MongoDB.
 
+APIs used: Passport.js
+
 ---
 
 @justin.park
