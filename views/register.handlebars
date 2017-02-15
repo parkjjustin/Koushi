@@ -24,9 +24,12 @@
                 <input type="password" class="form-control" placeholder="Password" name="password2">
             </div>
             <h6 class="account-register">Already have an account? <a href="login" style="text-decoration: underline; font-size: 10px;">Log in!</a></h6>
-            <button type="submit" id="create" style="margin-bottom: 30px">Register</button> {{#if errors}} {{#each errors}}
-            <div class="alert alert-danger">{{msg}}</div>
-            {{/each}} {{/if}}
+            <button type="submit" id="create" style="margin-bottom: 30px">Register</button>
+            {{#if errors}}
+                {{#each errors}}
+                    <div class="alert alert-danger">{{msg}}</div>
+                {{/each}}
+            {{/if}}
         </form>
 
     </div>
