@@ -1,19 +1,20 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway:400,700');
 @import url('https://fonts.googleapis.com/css?family=Cabin');
 @import url('https://fonts.googleapis.com/css?family=Nunito:200');
-html, body {
+html,
+body {
     margin: 0;
     padding: 0;
     height: 100%;
-    font-family: 'Raleway', sans-serif;  
+    font-family: 'Raleway', sans-serif;
 }
-
 
 .site {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
 }
+
 
 /* Navbar CSS */
 
@@ -95,12 +96,12 @@ input {
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2), inset 0 10px 10px rgba(0, 0, 0, 0.1), inset 0 -10px 10px rgba(0, 0, 0, 0.1);
 }
 
-
 .terms {
     font-size: 9px;
 }
 
-.account-register, .forgot-password {
+.account-register,
+.forgot-password {
     font-size: 10px;
 }
 
@@ -142,12 +143,14 @@ input {
     font-style: italic;
 }
 
-.login-container, .register-container {
+.login-container,
+.register-container {
     text-align: center;
     margin-top: 150px;
 }
 
-#login-input-container, #register-input-container {
+#login-input-container,
+#register-input-container {
     width: 400px;
     margin: 0 auto 50px;
     border: 1px solid black;
@@ -157,7 +160,6 @@ input {
 label {
     display: block;
 }
-
 
 footer {
     background-color: black;
@@ -201,7 +203,7 @@ footer {
 }
 
 .info {
-    margin: 10px 0px 40px 40px;
+    margin: 0;
 }
 
 .question {
