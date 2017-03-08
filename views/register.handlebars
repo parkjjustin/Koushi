@@ -1,8 +1,12 @@
 <div class="register-container">
+    <img class="invlogo" src="/assets/img/invlogo.png">
     <div id="register-input-container">
         <h2 class="page-header">Register</h2>
-
-        <form method="POST" action="/users/register">
+        <div class="register-error">{{#if error_msg}} {{error_msg}} {{/if}}
+        </div>
+        <div class="register-error">{{#if errors}} {{#each errors}}
+            <span id="error-msg">{{msg}}</span> {{/each}} {{/if}}</div>
+        <form method="POST" action="/register">
             <div class="form-group">
 
                 <label>Username</label>
@@ -25,11 +29,6 @@
             </div>
             <h6 class="account-register">Already have an account? <a href="login" style="text-decoration: underline; font-size: 10px;">Log in!</a></h6>
             <button type="submit" id="create" style="margin-bottom: 30px">Register</button>
-            {{#if errors}}
-                {{#each errors}}
-                    <div class="alert alert-danger">{{msg}}</div>
-                {{/each}}
-            {{/if}}
         </form>
 
     </div>

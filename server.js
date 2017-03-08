@@ -11,7 +11,8 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const mongo = require('mongodb');
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/koushi');
+mongoose.connect('mongodb://localhost/shinsa');
+mongoose.Promise = require('bluebird');
 const db = mongoose.connection;
 
 const routes = require('./controllers/index');
@@ -22,7 +23,7 @@ const app = express();
 
 // View Engine
 app.set('views', path.join(__dirname, 'views'));
-app.engine('handlebars', exphbs({defaultLayout: 'main'}));
+app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 app.use(express.static(process.cwd() + "/public"));
 app.use(methodOverride("_method"));
@@ -30,7 +31,7 @@ app.use(methodOverride("_method"));
 
 // BodyParser Middleware
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 // Set Static Folder
@@ -49,27 +50,27 @@ app.use(passport.session());
 
 // Express expressValidator
 app.use(expressValidator({
-  errorFormatter: function(param, msg, value) {
-      var namespace = param.split('.')
-      , root    = namespace.shift()
-      , formParam = root;
+    errorFormatter: function(param, msg, value) {
+        var namespace = param.split('.'),
+            root = namespace.shift(),
+            formParam = root;
 
-    while(namespace.length) {
-      formParam += '[' + namespace.shift() + ']';
+        while (namespace.length) {
+            formParam += '[' + namespace.shift() + ']';
+        }
+        return {
+            param: formParam,
+            msg: msg,
+            value: value
+        };
     }
-    return {
-      param : formParam,
-      msg   : msg,
-      value : value
-    };
-  }
 }));
 
 // Connect Flash
 app.use(flash());
 
 // Global Variables
-app.use((request, response, next)=> {
+app.use((request, response, next) => {
     response.locals.success_msg = request.flash('success_msg');
     response.locals.error_msg = request.flash('error_msg');
     response.locals.error = request.flash('error');
@@ -78,7 +79,7 @@ app.use((request, response, next)=> {
 });
 
 app.use('/', routes);
-app.use('/users', users);
+app.use('/', users);
 
 app.set('port', (process.env.PORT || 3000));
 

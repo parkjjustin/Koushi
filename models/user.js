@@ -9,6 +9,7 @@ var UserSchema = mongoose.Schema({
         unique: true,
         min: 6,
         max: 15,
+        trim: true,
         validate: [(input) => {
             return input.length >= 6;
         }, "Username should be longer."]
@@ -19,6 +20,7 @@ var UserSchema = mongoose.Schema({
         unique: true,
         lowercase: true,
         required: 'Email address is required',
+        trim: true,
         match: [/.+\@.+\..+/, "enter a valid email"]
     },
 
@@ -46,7 +48,12 @@ module.exports.createUser = function(newUser, callback) {
 }
 
 module.exports.getUserByUsername = function(username, callback) {
-    var query = { username: username };
+    let query = { username: username };
+    User.findOne(query, callback);
+}
+
+module.exports.getUserByEmail = function(email, callback) {
+    let query = { email: email };
     User.findOne(query, callback);
 }
 

@@ -3,6 +3,7 @@ const router = express.Router();
 const User = require("../models/user")
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
+const validator = require("validator");
 // Register
 router.get('/register', (request, response) => {
     response.render('register')
@@ -14,41 +15,57 @@ router.get('/login', (request, response) => {
 });
 
 router.get('/profile', isLoggedIn, (request, response) => {
-    response.render('profile')
+    let user = response.locals.user;
+    response.render('profile', user)
 });
 
 // Register User
 router.post('/register', (request, response) => {
-    let username = request.body.username;
-    let email = request.body.email.toLowerCase();
-    let password = request.body.password;
-    let password2 = request.body.password2;
+    User.find({ $or: [{ email: request.body.email }, { username: request.body.username }] }).then(user => {
+        let username = request.body.username.trim();
+        let email = request.body.email.toLowerCase().trim();
+        let password = request.body.password;
+        let password2 = request.body.password2;
+        request.checkBody('username', 'Username is required').notEmpty();
+        request.checkBody('email', 'Email is required').notEmpty();
+        request.checkBody('email', 'Email is not valid').isEmail();
+        request.checkBody('password', 'Password is required').notEmpty();
+        request.checkBody('password2', 'Passwords do not match').equals(password);
+        let errors = request.validationErrors();
 
-    // Validation
-    request.checkBody('username', 'Username is required').notEmpty();
-    request.checkBody('email', 'Email is required').notEmpty();
-    request.checkBody('email', 'Email is not valid').isEmail();
-    request.checkBody('password', 'Password is required').notEmpty();
-    request.checkBody('password2', 'Passwords do not match').equals(password);
-    let errors = request.validationErrors();
+        if (user[0] === undefined) {
 
-    if (errors) {
-        response.render("register", { errors: errors })
-    } else {
-        let newUser = new User({
-            username: username,
-            email: email,
-            password: password
-        });
-        User.createUser(newUser, (errors, user) => {
-            if (errors) throw errors;
-            console.log(user);
+            if (errors) {
+                response.render("register", { errors: errors })
+            } else {
+                let newUser = new User({
+                    username: username,
+                    email: email,
+                    password: request.body.password
+                });
+                User.createUser(newUser, (errors, user) => {
+                    if (errors) throw errors;
+                });
+                request.flash('success_msg', "You are registered and can now log in");
+                response.redirect('/login');
+            };
 
-        });
+        } else if (user[0].username === username && user[0].email === email) {
+            request.flash("error_msg", "Our records show that you have already registered an account. Please log in.");
+            response.redirect('/login');
+        } else if (user[0].email === email) {
+            request.flash("error_msg", "Email is already registered");
+            response.redirect('/register');
+        } else if (user[0].username === username) {
+            request.flash("error_msg", "Username is taken");
+            response.redirect('/register');
+        }
 
-        request.flash('success_msg', "You are registered and can now log in");
-        response.redirect('/users/login');
-    };
+
+
+    })
+
+
 });
 
 
@@ -82,7 +99,7 @@ passport.deserializeUser((id, done) => {
 });
 
 router.post('/login',
-    passport.authenticate('local', { successRedirect: '/users/profile', failureRedirect: '/users/login', failureFlash: true }),
+    passport.authenticate('local', { successRedirect: '/profile', failureRedirect: '/login', failureFlash: true }),
     (request, response) => {
         response.redirect('/');
     });
@@ -100,7 +117,7 @@ function isLoggedIn(request, response, next) {
         return next();
     } else {
         request.flash('error_msg', "You are not logged in")
-        response.redirect('users/login')
+        response.redirect('/login')
     }
 }
 module.exports = router;

@@ -5,14 +5,15 @@ html,
 body {
     margin: 0;
     padding: 0;
-    height: 100%;
+    height: 100vh;
     font-family: 'Raleway', sans-serif;
-}
-
-.site {
+    min-height: 100%;
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+}
+
+.container {
+    flex: 1;
 }
 
 
@@ -30,8 +31,13 @@ body {
 }
 
 .logo {
-    height: 30px;
-    margin: 10px 0px 10px 20px;
+    height: 40px;
+    margin: 5px 0px 0px 20px;
+}
+
+.invlogo {
+    height: 100px;
+    margin: 30px;
 }
 
 .nav-links {
@@ -48,6 +54,15 @@ body {
     border-radius: 4px;
     padding: 5px;
     margin-left: 10px;
+    -o-transition: .5s;
+    -ms-transition: .5s;
+    -moz-transition: .5s;
+    -webkit-transition: .5s;
+}
+
+.presentation:hover {
+    cursor: pointer;
+    background-color: #333;
 }
 
 a {
@@ -55,6 +70,10 @@ a {
     font-size: 12px;
     font-weight: 800;
     text-decoration: none;
+}
+
+a:hover {
+    color: white;
 }
 
 .header {
@@ -87,13 +106,19 @@ input {
 #create {
     width: 350px;
     height: 40px;
-    background-color: #9E1316;
+    background-color: #d82f2f;
     border: 1px solid #222;
     color: white;
     font-size: 1em;
     font-weight: 500;
     border-radius: 5px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2), inset 0 10px 10px rgba(0, 0, 0, 0.1), inset 0 -10px 10px rgba(0, 0, 0, 0.1);
+}
+
+#submit:hover,
+#login:hover,
+#create:hover {
+    cursor: pointer;
 }
 
 .terms {
@@ -146,7 +171,7 @@ input {
 .login-container,
 .register-container {
     text-align: center;
-    margin-top: 150px;
+    padding-top: 70px;
 }
 
 #login-input-container,
@@ -241,30 +266,41 @@ footer {
 .profile-content {
     box-sizing: border-box;
     width: 100%;
-    padding-top: 20px;
+    height: 100vh;
+    padding-top: 80px;
     text-align: center;
-    margin-top: 100px;
 }
 
 #info-content {
     margin: 20px auto;
     width: 80%;
     min-height: 300px;
-    border-radius: 25px;
+    border-radius: 10px;
     border: 1px solid black;
     display: inline-block;
     min-width: 300px;
-    box-shadow: 2px 2px 2px #888888;
     text-align: left;
 }
 
 #content-header {
     background-color: black;
     height: 40px;
-    border-radius: 25px 25px 0px 0px;
+    border-radius: 10px 10px 0px 0px;
     width: 100%;
     margin-top: -1px;
     color: white;
     box-sizing: border-box;
     padding: 11px;
+}
+
+.login-error,
+.already-registered,
+.register-error {
+    display: block;
+    color: red;
+    margin: 30px;
+}
+
+#error-msg {
+    display: block;
 }

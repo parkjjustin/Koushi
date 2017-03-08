@@ -1,13 +1,16 @@
 <div class="login-container">
+ <img class="invlogo" src="/assets/img/invlogo.png">
   <div id="login-input-container">
     <h2 class="page-header">Account Login</h2>
     <div id="error-block">
       {{#if error}}
-      <div class="alert alert-danger">{{error}}</div>
+      <div class="login-error">{{error}}</div>
+      {{/if}}<div class="already-registered">{{#if error_msg}} {{error_msg}} {{/if}}
+        </div> {{#if success_msg}}
+      <div class="login-success">{{success_msg}}</div>
       {{/if}}
-
     </div>
-    <form method="post" action="/users/login">
+    <form method="post" action="/login">
       <div class="form-group">
         <label>Username</label>
         <input type="text" class="form-control" name="username" placeholder="Username">
@@ -18,7 +21,7 @@
       </div>
 
       <h6 class="account-register">Don't have an account? <a href="register" style="text-decoration: underline; font-size: 10px;">Register</a> with us!</h6>
-      <h6><a class="forgot-password" href="#" style="text-decoration: underline;">Forgot your password?</h6>
+      <h6><a class="forgot-password" href="#" style="text-decoration: underline;">Forgot your password?</h6></a>
   <button type="submit" id="login">Log In</button>
   <div class="error-block">
 
@@ -26,4 +29,3 @@
 </form>
 </div>
 </div>
-<footer class="footer" style="position: absolute; bottom: 0;">@justin.park @andrey.orlov</footer>

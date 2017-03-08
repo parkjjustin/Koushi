@@ -1,10 +1,7 @@
-<div class="profile-nav">
-    {{#users}}
-    <h3>Welcome {{this.first_name}} {{this.last_name}}</h3>
-    {{/users}}
-</div>
-
 <div class="profile-content">
+    {{#if user}}
+    <h3>Welcome {{username}}</h3>
+    {{/if}}
     <div id="info-content">
         <div id="content-header">
             HTML / CSS / JavaScript
