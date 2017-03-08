@@ -50,7 +50,7 @@ body {
 .presentation {
     text-transform: uppercase;
     display: inline-block;
-    background-color: white;
+    border: 1px solid white;
     border-radius: 4px;
     padding: 5px;
     margin-left: 10px;
@@ -62,27 +62,27 @@ body {
 
 .presentation:hover {
     cursor: pointer;
-    background-color: #333;
+    background-color: white;
 }
 
-a {
-    color: black;
+.log-link {
+    color: white;
     font-size: 12px;
     font-weight: 800;
     text-decoration: none;
 }
 
-a:hover {
-    color: white;
+.log-link:hover {
+    color: black;
 }
 
 .header {
-    background-image: url("../img/hacker.png");
+    background-image: url("../img/hacker.jpg");
     background-size: cover;
     width: 100%;
-    height: 500px;
+    height: 400px;
     text-align: center;
-    padding-top: 80px;
+    padding-top: 120px;
     box-sizing: border-box;
     color: white;
     line-height: 8px;

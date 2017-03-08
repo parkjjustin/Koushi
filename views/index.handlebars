@@ -6,29 +6,9 @@
     {{else}}
 
     <h1>Study. Prepare. Get hired.</h1>
-    <h3>Sign up and improve your skills</h3>
+    <h3>Join over 1 million programmers and improve your knowledge</h3>
+    <a href="/register"><button id="submit">Sign up and start studying</button></a> {{/if}}
 
-    <form class="register-form" action="/users/register" method="POST">
-
-        <div class="input-group">
-            <input type="text" class="form-control" placeholder="Username" name="username">
-        </div>
-
-        <div class="input-group">
-            <input type="text" class="form-control" placeholder="E-mail" name="email">
-        </div>
-
-        <div class="input-group">
-            <input type="password" class="form-control" placeholder="Password" name="password">
-        </div>
-
-        <div class="input-group">
-            <input type="password" class="form-control" placeholder="Confirm Password" name="password2">
-        </div>
-        <h6 class="terms">By signing up you agree to our Terms of Service and Privacy Policy</h6>
-        <button type="submit" id="submit">Sign up & start preparing</button>
-     {{/if}}
-        <div class="warning"></div>
 
     </form>
 </div>
