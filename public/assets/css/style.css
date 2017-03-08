@@ -13,7 +13,7 @@ body {
 }
 
 .container {
-    flex: 1;
+    flex: 3;
 }
 
 
@@ -150,6 +150,8 @@ input {
     font-weight: 800;
     font-size: 3rem;
     display: block;
+    text-decoration: none;
+    margin-top: -100px;
 }
 
 .study-header {
@@ -221,14 +223,17 @@ footer {
 }
 
 .question,
-.answer,
-.info {
+.answer {
     font-size: .9rem;
     display: block;
 }
 
-.info {
-    margin: 0;
+.extra-info {
+    font-size: .8rem;
+    margin-left: 50px;
+    margin-top: 5px;
+    font-style: italic;
+    display: block;
 }
 
 .question {
@@ -266,7 +271,7 @@ footer {
 .profile-content {
     box-sizing: border-box;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     padding-top: 80px;
     text-align: center;
 }
@@ -303,4 +308,8 @@ footer {
 
 #error-msg {
     display: block;
+}
+
+.question-block {
+    padding: 30px;
 }
