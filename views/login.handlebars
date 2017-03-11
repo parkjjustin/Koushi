@@ -1,12 +1,18 @@
 <div class="login-container">
- <img class="invlogo" src="/assets/img/invlogo.png">
+  <img class="invlogo" src="/assets/img/invlogo.png"> {{#if user}}
+
+  <div class="already-logged-in">
+    <p>You are already logged in! Continue <a href="profile">studying!</a></p>
+  </div>
+  {{else}}
   <div id="login-input-container">
     <h2 class="page-header">Account Login</h2>
     <div id="error-block">
       {{#if error}}
       <div class="login-error">{{error}}</div>
-      {{/if}}<div class="already-registered">{{#if error_msg}} {{error_msg}} {{/if}}
-        </div> {{#if success_msg}}
+      {{/if}}
+      <div class="already-registered">{{#if error_msg}} {{error_msg}} {{/if}}
+      </div> {{#if success_msg}}
       <div class="login-success">{{success_msg}}</div>
       {{/if}}
     </div>
@@ -22,10 +28,11 @@
 
       <h6 class="account-register">Don't have an account? <a href="register" style="text-decoration: underline; font-size: 10px;">Register</a> with us!</h6>
       <h6><a class="forgot-password" href="#" style="text-decoration: underline;">Forgot your password?</h6></a>
-  <button type="submit" id="login">Log In</button>
-  <div class="error-block">
+        <button type="submit" id="login">Log In</button>
+        <div class="error-block">
 
-</div>
-</form>
-</div>
+        </div>
+    </form>
+  </div>
+  {{/if}}
 </div>

@@ -2,25 +2,24 @@
     <img class="invlogo" src="/assets/img/invlogo.png">
     <div id="register-input-container">
         <h2 class="page-header">Register</h2>
-        <div class="register-error">{{#if error_msg}} {{error_msg}} {{/if}}
-        </div>
-        <div class="register-error">{{#if errors}} {{#each errors}}
+
+        <div class="register-error">{{#if error_msg}} {{error_msg}} {{/if}}{{#if errors}} {{#each errors}}
             <span id="error-msg">{{msg}}</span> {{/each}} {{/if}}</div>
         <form method="POST" action="/register">
             <div class="form-group">
 
                 <label>Username</label>
-                <input type="text" class="form-control" placeholder="Username" name="username">
+                <input type="text" class="form-control" placeholder="Username" name="username" id="username">
             </div>
 
             <div class="form-group">
                 <label>Email</label>
-                <input type="text" class="form-control" placeholder="E-mail" name="email">
+                <input type="text" class="form-control" placeholder="E-mail" name="email" id="email">
             </div>
 
             <div class="form-group">
                 <label>Password</label>
-                <input type="password" class="form-control" placeholder="Password" name="password">
+                <input type="password" class="form-control" placeholder="Password" name="password" id="password">
             </div>
 
             <div class="form-group">

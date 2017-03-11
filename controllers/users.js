@@ -19,6 +19,12 @@ router.get('/profile', isLoggedIn, (request, response) => {
     response.render('profile', user)
 });
 
+
+router.get('/html', isLoggedIn, (request, response) => {
+    let user = response.locals.user;
+    response.render('html', user)
+});
+
 // Register User
 router.post('/register', (request, response) => {
     User.find({ $or: [{ email: request.body.email }, { username: request.body.username }] }).then(user => {

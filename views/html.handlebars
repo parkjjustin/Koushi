@@ -1,0 +1,56 @@
+<div class="profile-header">
+    <h1>Welcome {{username}}!</h1>
+    <p>HTML related interview questions</p>
+</div>
+
+<div class="html-content">
+    <section id="question-block">
+        <span class="question">1. What is DOCTYPE? Why do you need it?</span>
+        <span class="answer">Answer: A document type declaration, or DOCTYPE, is an instruction that associates a particular SGML or XML document (for example, a webpage) with a document type definition (DTD). You need it because is an instruction to the web browser about what version of HTML the page is written in and how the browser should render it.</span>
+        <div class="pre">
+            <code class="xml">&lt;<span class="pink">!DOCTYPE</span> html&gt;
+                            <br>&lt;html <span class="green">lang=</span><span class="yellow">"en"</span>&gt;
+                            </code>
+        </div>
+        <span class="extra-info">It guides how elements should be displayed on the page by the browser. Moreover, DOCTYPE is required to validate markup.</span>
+    </section>
+
+    <section id="question-block">
+        <span class="question">2. What is the difference between the HTML tag &lt;div&gt; and &lt;span&gt;?</span>
+        <span class="answer">Answer: div is a block element, span is inline.</span>
+        <span class="extra-info">This means that to use them semantically, divs should be used to wrap sections of a document, while spans should be used to wrap small portions of text, images, etc.</span>
+    </section>
+
+    <section id="question-block">
+        <span class="question">3. What is a Document Object Model?</span>
+        <span class="answer">Answer: The Document Object Model (DOM) is an application programming interface (API) for valid HTML and well-formed XML documents. It defines the logical structure of documents and the way a document is accessed and manipulated.</span>
+        <span class="extra-info">With the object model, JavaScript gets all the power it needs to create dynamic HTML.</span>
+    </section>
+
+    <section id="question-block">
+        <span class="question">4. What's the difference between full standards mode, almost standards mode and quirks mode?</span>
+        <span class="answer">Answer: The Document Object Model (DOM) is an application programming interface (API) for valid HTML and well-formed XML documents. It defines the logical structure of documents and the way a document is accessed and manipulated.</span>
+        <span class="extra-info">With the object model, JavaScript gets all the power it needs to create dynamic HTML.</span>
+    </section>
+
+
+</div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('a[href^="#"]').on('click', function (event) {
+            event.preventDefault();
+
+            var target = this.hash;
+            var $target = $(target);
+
+            $('html, body').stop().animate({
+                'scrollTop': $target.offset().top
+            }, 500, 'swing', function () {
+                window.location.hash = target;
+            });
+        });
+    });
+
+</script>

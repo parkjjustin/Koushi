@@ -6,8 +6,8 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="icon" href="assets/img/favicon.png">
-    <link rel="icon" href="../assets/img/favicon.png">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+        crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
@@ -18,12 +18,32 @@
         <nav class="navbar">
             <a href="/"><img class="logo" src="/assets/img/logo.png"></a>
             <ul class="nav-links">
-                {{#if user}}
-                <li class="presentation"><a class="log-link" href="/logout">Logout</a></li>
+                {{#user}}
+                <div class="dropdown">
+                    <div class="username">{{username}} <i class="fa fa-angle-down"></i></div>
+                    <div id="dropdown-menu" class="dropdown-content">
+                        <a href="/profile">
+                            <li class="menu">Home</li>
+                        </a>
+                        <a href="/html">
+                            <li class="menu">HTML</li>
+                        </a>
+                        <a href="/">
+                            <li class="menu">CSS</li>
+                        </a>
+                        <a href="/">
+                            <li class="menu">JavaScript</li>
+                        </a>
+                        <a href="/logout">
+                            <li class="menu">Logout</li>
+                        </a>
+                    </div>
+                </div>
+
 
                 {{else}}
-                <li class="presentation"><a class="log-link" href="/login">Log In</a></li>
-                {{/if}}
+                <li class="log-user"><a class="log-link" href="/login">Log In</a></li>
+                {{/user}}
 
             </ul>
         </nav>
@@ -31,6 +51,8 @@
     </div>
     </div>
     <footer class="footer">@justin.park</footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="assets/js/app.js"></script>
 </body>
 
 </html>
