@@ -78,10 +78,7 @@ router.post('/register', (request, response) => {
             response.redirect('/register');
         }
 
-
-
     })
-
 
 });
 
