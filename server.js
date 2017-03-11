@@ -11,7 +11,8 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const mongo = require('mongodb');
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/shinsa');
+
+mongoose.connect('mongodb://heroku_chhllm30:ffn8ngpgjnsg3isa0mtdk0qrli@ds129050.mlab.com:29050/heroku_chhllm30');
 mongoose.Promise = require('bluebird');
 const db = mongoose.connection;
 
