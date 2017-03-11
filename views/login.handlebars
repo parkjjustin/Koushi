@@ -7,15 +7,15 @@
   {{else}}
   <div id="login-input-container">
     <h2 class="page-header">Account Login</h2>
-    <div id="error-block">
-      {{#if error}}
-      <div class="login-error">{{error}}</div>
-      {{/if}} {{#if error_msg}}
-      <div class="already-registered"> {{error_msg}} {{/if}}
-      </div> {{#if success_msg}}
-      <div class="login-success">{{success_msg}}</div>
-      {{/if}}
-    </div>
+
+
+    {{#if error}}
+    <div class="login-error">{{error}}</div>
+    {{/if}} {{#if error_msg}}
+    <div class="already-registered"> {{error_msg}} </div>{{/if}} {{#if success_msg}}
+    <div class="login-success">{{success_msg}}</div>
+    {{/if}}
+
     <form method="post" action="/login">
       <div class="form-group">
         <label>Username</label>
@@ -26,7 +26,8 @@
         <input type="password" class="form-control" name="password" placeholder="Password">
       </div>
 
-      <h6 class="account-register">Don't have an account? <a href="register" style="text-decoration: underline; font-size: 10px;">Register</a> with us!</h6>
+      <h6 class="account-register">Don't have an account? <a href="register" style="text-decoration: underline; font-size: 10px;">Register</a> with us!
+      </h6>
       <h6><a class="forgot-password" href="#" style="text-decoration: underline;">Forgot your password?</h6></a>
         <button type="submit" id="login">Log In</button>
         <div class="error-block">
