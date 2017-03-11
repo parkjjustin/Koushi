@@ -353,6 +353,13 @@ footer {
     margin: 30px;
 }
 
+.login-success {
+    display: block;
+    color: green;
+    margin: 30px;
+}
+
+
 #error-msg {
     display: block;
 }

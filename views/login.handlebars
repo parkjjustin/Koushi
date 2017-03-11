@@ -10,8 +10,8 @@
     <div id="error-block">
       {{#if error}}
       <div class="login-error">{{error}}</div>
-      {{/if}}
-      <div class="already-registered">{{#if error_msg}} {{error_msg}} {{/if}}
+      {{/if}} {{#if error_msg}}
+      <div class="already-registered"> {{error_msg}} {{/if}}
       </div> {{#if success_msg}}
       <div class="login-success">{{success_msg}}</div>
       {{/if}}
