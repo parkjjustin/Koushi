@@ -285,6 +285,7 @@ footer {
 
 .question {
     margin-bottom: 5px;
+    font-weight: 600;
 }
 
 .answer {
