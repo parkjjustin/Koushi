@@ -245,6 +245,11 @@ footer {
     padding: 10px;
 }
 
+section {
+    padding: 30px;
+    text-align: justify;
+}
+
 .alert {
     width: 85%;
     margin: 10px auto 30px;
@@ -365,11 +370,6 @@ footer {
     display: block;
 }
 
-#question-block {
-    padding: 30px;
-    text-align: justify;
-}
-
 .profile-header {
     background-color: #eee;
     height: 300px;
@@ -411,4 +411,28 @@ footer {
 .html-content {
     width: 80%;
     margin: 0 auto;
+    padding: 50px;
+}
+
+.content-title {
+    font-weight: 800;
+    text-align: center;
+    display: block;
+}
+
+.index {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    height: 400px;
+    width: 100%;
+    box-sizing: border-box;
+    padding-left: 140px;
+}
+
+.index-link {
+    display: block;
+    font-size: 14px;
+    text-decoration: underline;
+    color: black;
+    font-weight: 400;
 }
