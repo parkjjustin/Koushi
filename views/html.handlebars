@@ -9,8 +9,9 @@
     <a class="index-link" href="#question-block-3">3. What is a Document Object Model?</a>
     <a class="index-link" href="#question-block-4">4. What's the difference between full standards mode, almost standards mode and quirks mode?</a>
     <a class="index-link" href="#question-block-5">5. What is CORS? And how does it work?</a>
-    <a class="index-link" href="#question-block-6">What are data- attributes good for?</a>
-    {{!--<a href="#question-block-1">--}}
+    <a class="index-link" href="#question-block-6">6. What are data-attributes good for?</a>
+    <a class="index-link" href="#question-block-6">7. How do you serve a page with content in multiple languages?</a> {{!--
+    <a href="#question-block-1">--}}
         {{!--<a href="#question-block-1">--}}
 
 </div>
@@ -52,10 +53,26 @@
     </section>
 
     <section id="question-block-6">
-        <span class="question">6.What are data- attributes good for?</span>
-        <span class="answer">Answer: Custom data- attributes are a great way to simplify the storage of application data in your web pages.</span>
+        <span class="question">6.What are data-attributes good for?</span>
+        <span class="answer">Answer: Custom data-attributes are a great way to simplify the storage of application data in your web pages.</span>
     </section>
 
+    <section id="question-block-7">
+        <span class="question">7. How do you serve a page with content in multiple languages?</span>
+        <span class="answer">Answer: By changing the lang attribute on the html element.</span>
+        <div class="pre">
+            <code class="xml">&lt;<span class="pink">!DOCTYPE</span> html&gt;
+                            <br>&lt;html <span class="green">lang=</span><span class="yellow">"en"</span>&gt;
+                            </code>
+        </div>
+        <span class="extra-info">Elements can also be wrapped in a lang tag if you have more than one language on the same page.</span>
+        <div class="pre">
+            <code class="xml">&lt;<span class="pink">div</span> <span class="green">lang=</span><span class="yellow">"es"</span>&gt;Yo no hablo español&lt;/<span class="pink">div</span>&gt;
+                            <br>&lt;<span class="pink">div</span> <span class="green">lang=</span><span class="yellow">"fr"</span>&gt;Je ne parle pas français&lt;/<span class="pink">div</span>&gt;
+                            <br>&lt;<span class="pink">div</span> <span class="green">lang=</span><span class="yellow">"zh-Hans"</span>&gt;中国科学院文献情报中心&lt;/<span class="pink">div</span>&gt;
+                            </code>
+        </div>
+    </section>
 
 </div>
 </div>
