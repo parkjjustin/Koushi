@@ -11,11 +11,13 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const mongo = require('mongodb');
 const mongoose = require('mongoose');
+const secret = require("./keys.js");
 
-mongoose.connect('mongodb://heroku_chhllm30:ffn8ngpgjnsg3isa0mtdk0qrli@ds129050.mlab.com:29050/heroku_chhllm30');
+mongoose.connect(secret.mongo.mongodb);
+
 mongoose.Promise = require('bluebird');
 const db = mongoose.connection;
-// mongodb://heroku_chhllm30:ffn8ngpgjnsg3isa0mtdk0qrli@ds129050.mlab.com:29050/heroku_chhllm30
+
 const routes = require('./controllers/index');
 const users = require('./controllers/users');
 

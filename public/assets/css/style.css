@@ -16,6 +16,7 @@ body {
     flex: 1000;
 }
 
+
 /* Navbar CSS */
 
 .navbar {
@@ -51,7 +52,7 @@ body {
     text-align: right;
 }
 
-.dropdown-content{
+.dropdown-content {
     display: none;
     padding-top: 17px;
 }
@@ -85,7 +86,6 @@ body {
     background-color: transparent;
     border: none;
     font-weight: 800;
-
 }
 
 .username {
@@ -112,6 +112,7 @@ body {
     -moz-transition: .5s;
     -webkit-transition: .5s;
 }
+
 a {
     text-decoration: none;
 }
@@ -365,7 +366,6 @@ section {
     margin: 30px;
 }
 
-
 #error-msg {
     display: block;
 }
@@ -380,7 +380,7 @@ section {
     box-sizing: border-box;
 }
 
-#content-container{
+#content-container {
     width: 50%;
     text-align: center;
     margin: 6% auto;
@@ -400,7 +400,6 @@ section {
     border-radius: 5px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2), inset 0 10px 10px rgba(0, 0, 0, 0.1), inset 0 -10px 10px rgba(0, 0, 0, 0.1);
 }
-
 
 #link-button:hover {
     cursor: pointer;
@@ -423,10 +422,9 @@ section {
 .index {
     border-top: 1px solid black;
     border-bottom: 1px solid black;
-    height: 400px;
     width: 100%;
     box-sizing: border-box;
-    padding-left: 140px;
+    padding: 20px 0px 60px 140px;
 }
 
 .index-link {
