@@ -12,10 +12,8 @@
     <a class="index-link" href="#question-block-6">6. What are data-attributes good for?</a>
     <a class="index-link" href="#question-block-7">7. How do you serve a page with content in multiple languages?</a>
     <a class="index-link" href="#question-block-8">8. Consider HTML5 as an open web platform. What are the building blocks of HTML5?</a>
-    <a class="index-link" href="#question-block-9">9. Describe the difference between cookies, sessionStorage and localStorage.</a>    {{!--
-    <a href="#question-block-1">--}}
-        {{!--<a href="#question-block-1">--}}
-
+    <a class="index-link" href="#question-block-9">9. Describe the difference between cookies, sessionStorage and localStorage.</a>
+    <a class="index-link" href="#question-block-10">10. Describe the difference between &lt;script&gt;, &lt;script async&gt; and &lt;script defer&gt;."</a>
 </div>
 
 
@@ -99,6 +97,18 @@
         </span>
     </section>
 
+    <section id="question-block-10">
+        <span class="question">10. Describe the difference between &lt;script&gt;, &lt;script async&gt; and &lt;script defer&gt;.</span>
+        <span class="answer">
+            Answer:
+            <p>&lt;script&gt; Normal execution:<br>
+            This is the default behavior of the &lt;script&gt; element. Parsing of the HTML code pauses while the script is executing. For slow servers and heavy scripts this means that displaying the webpage will be delayed.</p>
+            <p>&lt;script defer&gt; Deferred execution:<br>
+            Delaying script execution until the HTML parser has finished. A positive effect of this attribute is that the DOM will be available for your script. However, since not every browser supports defer yet, don’t rely on it!</p>
+            <p>&lt;script async&gt; Asynchronous execution:<br>
+            Don’t care when the script will be available? Asynchronous is the best of both worlds: HTML parsing may continue and the script will be executed as soon as it’s ready. It is recommended for scripts such as Google Analytics.</p>
+        </span>
+    </section>
 
 </div>
 </div>

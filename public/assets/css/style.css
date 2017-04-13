@@ -55,6 +55,7 @@ body {
 .dropdown-content {
     display: none;
     padding-top: 17px;
+    margin-right: -40px;
 }
 
 .menu {
