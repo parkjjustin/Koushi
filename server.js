@@ -14,8 +14,6 @@ const mongoose = require('mongoose');
 const secret = require("./keys.js");
 const compression = require("compression");
 
-app.use(compression());
-
 mongoose.connect(secret.mongo.mongodb);
 
 mongoose.Promise = require('bluebird');
@@ -33,7 +31,7 @@ app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 app.use(express.static(process.cwd() + "/public"));
 app.use(methodOverride("_method"));
-
+app.use(compression());
 
 // BodyParser Middleware
 app.use(bodyParser.json());
