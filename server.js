@@ -12,6 +12,9 @@ const LocalStrategy = require('passport-local').Strategy;
 const mongo = require('mongodb');
 const mongoose = require('mongoose');
 const secret = require("./keys.js");
+const compression = require("compression");
+
+app.use(compression());
 
 mongoose.connect(secret.mongo.mongodb);
 
