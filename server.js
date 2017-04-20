@@ -31,9 +31,10 @@ app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 app.use(express.static(process.cwd() + "/public"));
 app.use(methodOverride("_method"));
-app.use(compression());
+
 
 // BodyParser Middleware
+app.use(compression());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
