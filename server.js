@@ -12,6 +12,7 @@ const LocalStrategy = require('passport-local').Strategy;
 const mongo = require('mongodb');
 const mongoose = require('mongoose');
 const secret = require("./keys.js");
+const compression = require("compression");
 
 mongoose.connect(secret.mongo.mongodb);
 
@@ -23,6 +24,7 @@ const users = require('./controllers/users');
 
 // Init App
 const app = express();
+app.use(compression());
 
 // View Engine
 app.set('views', path.join(__dirname, 'views'));
